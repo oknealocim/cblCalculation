@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://uatadmin.thgenergy.net/cbl/update/43 -->
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'main/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/bootstrap-responsive.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/yii.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/jquery-ui.css' %}">
+    <script type="text/javascript" src="{% static 'main/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'main/bootstrap.js' %}"></script>
+    <script type="text/javascript" src="{% static 'main/jquery-ui.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'main/jquery.multi-select.js' %}"></script>
+    <title>CBL calculator</title>
+    <!-- Main styles -->
+    <link rel="stylesheet" type="text/css" href="{% static 'main/ui.jqgrid.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/form.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/multi-select.css' %}">
+
+    <script src="{% static 'main/jquery.jqGrid.min.js"></script>
+    <link type="text/css" href="{% static 'main/ui.jqgrid.css' %}" rel="stylesheet">
+    <script src="{% static 'main/grid.locale-en.js' %}"></script>
+</head>
+<body>
+<div id="page">
+    <!-- =Header -->
+    <!-- =Main -->
+    <div id="main" class="clearfix">
+        <div id="alert-block"></div>
+    </div>
+    <div class="well">
+        <form enctype="multipart/form-data" class="form-vertical" id="cbl-form"
+              action="google.com" method="post">
+
+            <div class="row-fluid">
+                <div class="span6">
+                    <legend> Main settings</legend>
+
+                    <legend for="Cbl_initial_time_frame">CBL calculation type</legend>
+                    <select name="Cbl[initial_time_frame]" id="Cbl_initial_time_frame">
+                        <option value="0" selected="selected">Recent number of days</option>
+                        <option value="1">Intervals before</option>
+                        <option value="2">Closest day before event</option>
+                        <option value="3">Fixed CBL upload</option>
+                        <option value="4">Jordan saved profile 1</option>
+                        <option value="5">Jordan saved profile 2</option>
+                        <option value="6">Jordan saved profile 3</option>
+                        <option value="7">Dmytro saved profile 1</option>
+                    </select>
+
+                    <fieldset class="option-0">
+                        <legend>Time Frame Adjustment:</legend>
+                        <label for="Cbl_recent_days_number">Look Back Window</label><select
+                            name="Cbl[recent_days_number]" id="Cbl_recent_days_number">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12" selected="selected">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                        <option value="32">32</option>
+                        <option value="33">33</option>
+                        <option value="34">34</option>
+                        <option value="35">35</option>
+                        <option value="36">36</option>
+                        <option value="37">37</option>
+                        <option value="38">38</option>
+                        <option value="39">39</option>
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                        <option value="42">42</option>
+                        <option value="43">43</option>
+                        <option value="44">44</option>
+                        <option value="45">45</option>
+                    </select>
+                        <label for="Cbl_extended_days">Extended days due to exclusions</label><select
+                            name="Cbl[extended_days]" id="Cbl_extended_days">
+                        <option value="0">0</option>
+                        <option value="1" selected="selected">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                    </select>
+                        <label for="Cbl_prior_days_begin_count">Start count days prior to event day</label><select
+                            name="Cbl[prior_days_begin_count]" id="Cbl_prior_days_begin_count">
+                        <option value="1" selected="selected">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    </fieldset>
+
+                    <fieldset class="option-0 option-2">
+                        <legend>Standard Excluded Days:</legend>
+                        <label class="checkbox" for="Cbl_excluded_prior_event_days"><input
+                                id="ytCbl_excluded_prior_event_days" type="hidden" value="0"
+                                name="Cbl[excluded_prior_event_days]"><input name="Cbl[excluded_prior_event_days]"
+                                                                             id="Cbl_excluded_prior_event_days"
+                                                                             value="1" checked="checked"
+                                                                             type="checkbox">
+                            Exclude prior event days</label>
+                        <label class="checkbox" for="Cbl_exclude_0cons_any_hour"><input
+                                id="ytCbl_exclude_0cons_any_hour" type="hidden" value="0"
+                                name="Cbl[exclude_0cons_any_hour]"><input name="Cbl[exclude_0cons_any_hour]"
+                                                                          id="Cbl_exclude_0cons_any_hour" value="1"
+                                                                          checked="checked" type="checkbox">
+                            Exclude 0cons Any Hour</label>
+                    </fieldset>
+
+                    <fieldset class="option-0">
+                        <legend>Calculated Excluded Days:</legend>
+                        <label class="checkbox" for="Cbl_excluded_low_usage"><input id="ytCbl_excluded_low_usage"
+                                                                                    type="hidden" value="0"
+                                                                                    name="Cbl[excluded_low_usage]"><input
+                                name="Cbl[excluded_low_usage]" id="Cbl_excluded_low_usage" value="1"
+                                type="checkbox">
+                            Low usage days</label>
+                        <label for="Cbl_usage_percentage_threshold">Usage Percentage Threshold</label>
+                        <input
+                                name="Cbl[usage_percentage_threshold]" id="Cbl_usage_percentage_threshold" type="text"
+                                value="0">
+                    </fieldset>
+
+                    <div class="row-fluid">
+                        <label for="Cbl_final_recent_recent_days_count">Most recent days count</label><select
+                            name="Cbl[final_recent_recent_days_count]" id="Cbl_final_recent_recent_days_count">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10" selected="selected">10</option>
+                    </select>
+
+                        <div class="row-fluid" style="margin-left: 15px">
+                            <label class="radio">
+                                <input value="0" id="Cbl_final_recent_days0" name="Cbl[final_recent_days]"
+                                       type="radio"> Highest days out of most recent days
+                            </label>
+                            <label for="Cbl_final_highest_days_count">Highest days count</label><select
+                                name="Cbl[final_highest_days_count]" id="Cbl_final_highest_days_count">
+                            <option value="1" selected="selected">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+
+
+                            <label class="radio">
+                                <input value="1" id="Cbl_final_recent_days1" name="Cbl[final_recent_days]"
+                                       checked="checked" type="radio"> Middle days out of most recent days
+                            </label>
+                            <label for="Cbl_final_recent_middle_days_count">Final Recent Middle Days
+                                Count</label><select name="Cbl[final_recent_middle_days_count]"
+                                                     id="Cbl_final_recent_middle_days_count">
+                            <option value="1" selected="selected">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="span6">
+                    <legend>Additional settings</legend>
+
+                    <fieldset class="option-0 option-2">
+                        <legend>Adjustment:</legend>
+                        <div class="row-fluid">
+                            <div class="span6">
+                                <label for="Cbl_adjustment">Adjustment</label><select name="Cbl[adjustment]"
+                                                                                      id="Cbl_adjustment">
+                                <option value="0" selected="selected">None</option>
+                                <option value="1">Symmetric Additive</option>
+                                <option value="2">Ratio</option>
+                            </select>
+                                <div class="adjustment-2 adjustment-1" style="display: none;">
+                                    <label for="Cbl_previous_hours">Previous Hours</label><input
+                                        name="Cbl[previous_hours]" id="Cbl_previous_hours" type="text" value="3"
+                                        disabled="">
+                                    <label for="Cbl_excluded_hours">Excluded Hours</label><input
+                                        name="Cbl[excluded_hours]" id="Cbl_excluded_hours" type="text" value="0"
+                                        disabled="">
+                                </div>
+                            </div>
+                            <div class="span6 adjustment-2" style="display: none;">
+                                <label for="Cbl_ratioLowerLimit">Lower Limit</label><input
+                                    name="Cbl[ratioLowerLimit]" id="Cbl_ratioLowerLimit" type="text" disabled="">
+                                <label for="Cbl_ratioUpperLimit">Upper Limit</label><input
+                                    name="Cbl[ratioUpperLimit]" id="Cbl_ratioUpperLimit" type="text" disabled="">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="option-0">
+                        <legend>Additional Extended Params:</legend>
+                        <div class="form-inline">
+                            <input class="extended_option" type="checkbox" value="1" name="extended_option_1"
+                                   id="extended_option_1"> <select class="extended_select"
+                                                                   name="Cbl[extended_option_1]"
+                                                                   id="Cbl_extended_option_1">
+                            <option value="0">None</option>
+                            <option value="4" disabled="" style="display: none;">Include event days</option>
+                        </select></div>
+                        <h4>Add Ext Params</h4>
+                        <input id="ytCbl_add_ext_params" type="hidden" value="" name="Cbl[add_ext_params]"><label
+                            class="radio"><input id="Cbl_add_ext_params_0" value="0" checked="checked" type="radio"
+                                                 name="Cbl[add_ext_params]"><label for="Cbl_add_ext_params_0">Days
+                        with highest load</label></label><label class="radio"><input id="Cbl_add_ext_params_1"
+                                                                                     value="1" type="radio"
+                                                                                     name="Cbl[add_ext_params]"><label
+                            for="Cbl_add_ext_params_1">Most recent days</label></label></fieldset>
+
+                    <div class="row-fluid option-1" style="display: none;">
+                        <label for="Cbl_interval_type">Interval Type</label><select name="Cbl[interval_type]"
+                                                                                    id="Cbl_interval_type">
+                        <option value="1">Hours</option>
+                        <option value="2">15 Minutes</option>
+                        <option value="3" selected="selected">5 Minutes</option>
+                    </select>
+                        <label for="Cbl_intervals_before_event_number">Intervals before</label><select
+                            name="Cbl[intervals_before_event_number]" id="Cbl_intervals_before_event_number">
+                        <option value="1" selected="selected">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                    </select>
+                        <label for="Cbl_intervals_after_event_number">Intervals after</label><select
+                            name="Cbl[intervals_after_event_number]" id="Cbl_intervals_after_event_number">
+                        <option value="1" selected="selected">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                    </select>
+                        <label for="Cbl_skip_intervals_before_event_number">Skipped intervals before</label><select
+                            name="Cbl[skip_intervals_before_event_number]"
+                            id="Cbl_skip_intervals_before_event_number">
+                        <option value="1" selected="selected">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                        <label for="Cbl_skip_intervals_after_event_number">Skipped intervals after</label><select
+                            name="Cbl[skip_intervals_after_event_number]" id="Cbl_skip_intervals_after_event_number">
+                        <option value="1" selected="selected">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    </div>
+
+                    <div class="row-fluid option-3" style="display: none;">
+                        <input id="ytCbl_fixed_upload_file" type="hidden" value=""
+                               name="Cbl[fixed_upload_file]"><input name="Cbl[fixed_upload_file]"
+                                                                    id="Cbl_fixed_upload_file" type="file"></div>
+
+                </div>
+            </div>
+            <div class="f-row-btns clearfix">
+                <div class="f-row">
+                    <label for="UploadXMLForm_file_xml">Upload EA Report File (*.xls)</label>
+                    <input id="ytUploadXMLForm_file_xml" type="hidden" value="" name="UploadXMLForm[file_xls]">
+                    <input name="UploadXMLForm[file_xml]" id="UploadXMLForm_file_xml" type="file">
+                </div>
+                <div class="pull-right">
+                    <button class="btn btn-primary" type="submit" name="yt0">Calculate CBL</button>
+                </div>
+        </form>
+    </div><!-- well -->
+
+    <script>
+    $(function () {
+        $('#Cbl_adjustment').change(e => resolveRatio(e.target.value));
+        $('#Cbl_initial_time_frame').change(e => resolveInputs(e.target.value)).trigger('change');
+
+        function resolveRatio(value) {
+            $('[class*="adjustment-"]').each(function () {
+                if ($(this).hasClass('adjustment-' + value)) {
+                    $(this).show();
+                    $(this).find('input').prop("disabled", false);
+                } else {
+                    $(this).hide();
+                    $(this).find('input').prop("disabled", true);
+                }
+            });
+        }
+
+        $('#Cbl_excluded_prior_event_days, select.extended_select, input.extended_option').change(resolveExtendedOptions);
+
+        resolveExtendedOptions();
+
+        function resolveInputs(initialTimeValue) {
+            $('[class*="option-"]').each(function() {
+                if ($(this).hasClass('option-' + initialTimeValue)) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+
+            $('#Cbl_adjustment').trigger('change');
+        }
+
+        function resolveExtendedOptions() {
+            var inputs = $('select.extended_select');
+
+            $('input.extended_option').each(function () {
+                var input = $('#Cbl_' + $(this).prop('id'));
+                if ($(this)[0].checked) {
+                    input.find('option').show().prop('disabled', false);
+                } else {
+                    input.val(0);
+                    input.find('option').not(':first').prop('disabled', true);
+                }
+            });
+
+            if (false == $('#Cbl_excluded_prior_event_days')[0].checked) {
+                inputs.find('option[value=4]').prop('disabled', true);
+            }
+
+            inputs.each(function () {
+                var input = $(this);
+                if (null == input.val()) {
+                    input.val(0);
+                }
+                if (0 < input.val()) {
+                    $('select.extended_select').not('#' + input.prop('id')).each(function () {
+                        if ($(this).val() == input.val()) {
+                            $(this).val(0);
+                        }
+                        $(this).find('option[value=' + input.val() + ']').prop('disabled', true);
+                    });
+                }
+            });
+
+            inputs.find('option:disabled').hide();
+        }
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</div><!-- main -->
+<!-- =footer -->
+<div id="footer" class="clearfix">
+    Copyright © 2022 THG Energy Solutions. All Rights Reserved
+</div><!-- footer -->        </div><!-- page -->
+<script type="text/javascript">
+/*<![CDATA[*/
+jQuery(function($) {
+jQuery('body').tooltip({'selector':'a\x5Brel\x3Dtooltip\x5D'});
+jQuery('body').popover({'selector':'a\x5Brel\x3Dpopover\x5D'});
+jQuery('#yii_bootstrap_collapse_0').collapse({'parent':false,'toggle':false});
+jQuery('#alert-block .alert').alert();
+});
+/*]]>*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+<div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div>
+</body>
+</html>

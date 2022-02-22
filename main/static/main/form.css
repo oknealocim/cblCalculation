@@ -1,0 +1,70 @@
+form .hint
+{
+	margin: 0;
+	padding: 0;
+	color: #999;
+}
+
+form span.required
+{
+    color: #b94a48;
+}
+
+form div.error label:first-child,
+form label.error,
+form span.error
+{
+    color: #b94a48;
+}
+
+form div.error input,
+form div.error textarea,
+form div.error select,
+form input.error,
+form textarea.error,
+form select.error
+{
+	border-color: #C00;
+    font: 16px/18px Arial, sans-serif;
+}
+
+form .errorSummary
+{
+    color: #b94a48;
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding: 8px 35px 8px 14px;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    border: 1px solid #fbeed5;
+    border-radius: 4px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    font: 16px/18px Arial, sans-serif;
+}
+
+form .errorMessage
+{
+    color: #b94a48;
+	font-size: 0.9em;
+    font: 16px/18px Arial, sans-serif;
+}
+
+form .errorSummary p
+{
+	margin: 0;
+	padding: 5px;
+}
+
+form .errorSummary ul
+{
+    padding: 0;
+    margin: 0 0 10px 25px;
+}
+
+div.wide.form .buttons, div.wide.form .hint, div.wide.form .errorMessage
+{
+	clear: left;
+	padding-left: 110px;
+}
